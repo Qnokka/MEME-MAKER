@@ -44,3 +44,18 @@ ctx.lineTo(675, 200);
 ctx.lineTo(775, 300); //+25
 ctx.lineTo(475, 300);
 paintedRect("tomato");
+
+//연습 : 임의의 캐릭터 하나 그려보기
+ctx.beginPath();
+ctx.rect(200, 500, 20, 25);
+ctx.rect(240, 500, 50, 50);
+ctx.rect(310, 500, 20, 25);
+ctx.rect(220, 560, 30, 30);
+ctx.rect(280, 560, 30, 30);
+ctx.arc(265, 455, 35, 0, 2 * Math.PI); //해당 개념 공부 더 하기
+ctx.fillStyle = "brown";
+ctx.fill();
+
+
+
+
