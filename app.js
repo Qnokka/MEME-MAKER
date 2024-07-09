@@ -1,60 +1,28 @@
 const canvas = document.querySelector("canvas");
 //canvas element에 접근하기 위한 상수 선언
 const ctx = canvas.getContext("2d");
-canvas.width = 800;
-canvas.height = 800;
+const canvasSetWidth = canvas.width = 800;
+const canvasSetHeight = canvas.height = 800;
 //canvas의 size를 알려주는 구문
 
-// ctx.fillRect(200, 200, 50, 200);
-// ctx.fillRect(400, 200, 50, 200);
-ctx.lineWidth = 4;
-// ctx.strokeRect(300, 300, 50, 100);
-// ctx.fillRect(200, 200, 200, 20);
+ctx.lineWidth = 2;
 
-// ctx.moveTo(200, 200);
-// ctx.lineTo(325, 100);
-// ctx.lineTo(450, 200);
-// ctx.fill();
+const colors = [
+    "#00a8ff","#8c7ae6","#fbc531",
+    "#44bd32","#40739e","#e84118",
+    "#7f8fa6","#273c75","#2f3640"
+]
 
-//연습 : 사다리꼴 지붕 그려보기
-function paintedRect(color) {
-    ctx.fillStyle = color;
-    ctx.fill();
+function onClick(event) {
+    ctx.beginPath();
+    ctx.moveTo(800, 800);
+    const color = colors[Math.floor(Math.random() *colors.length)];
+    ctx.strokeStyle = color;
+    ctx.lineTo(event.offsetX, event.offsetY);
     ctx.stroke();
-}; //공통적으로 사용되는 구문
+}
 
-ctx.beginPath(); //기둥
-ctx.rect(500, 300, 50, 100);
-ctx.rect(700, 300, 50, 100);
-paintedRect("skyblue");
-
-ctx.beginPath();
-ctx.rect(550, 300, 150, 100);
-paintedRect("beige");
-
-ctx.beginPath(); //대문
-ctx.rect(590, 350, 35, 50);
-ctx.rect(625, 350, 35, 50);
-paintedRect("green");
-
-ctx.beginPath(); //지붕
-ctx.moveTo(475, 300); //-25
-ctx.lineTo(565, 200); 
-ctx.lineTo(675, 200);
-ctx.lineTo(775, 300); //+25
-ctx.lineTo(475, 300);
-paintedRect("tomato");
-
-//연습 : 임의의 캐릭터 하나 그려보기
-ctx.beginPath();
-ctx.rect(200, 500, 20, 25);
-ctx.rect(240, 500, 50, 50);
-ctx.rect(310, 500, 20, 25);
-ctx.rect(220, 560, 30, 30);
-ctx.rect(280, 560, 30, 30);
-ctx.arc(265, 455, 35, 0, 2 * Math.PI); //해당 개념 공부 더 하기
-ctx.fillStyle = "brown";
-ctx.fill();
+canvas.addEventListener("mousemove", onClick)
 
 
 
