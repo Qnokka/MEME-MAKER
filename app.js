@@ -12,48 +12,40 @@ let currentColor = "";
 ctx.lineWidth = 2;
 
 const colors = [
-    "#00a8ff"/*,"#8c7ae6","#fbc531",
+    "#00a8ff","#8c7ae6","#fbc531"/*,
     "#44bd32","#40739e","#e84118",
     "#7f8fa6","#273c75","#2f3640"*/
 ]
 
 const newColors = [
-    "#ff9ff3"/*, "#feca57", "#ff6b6b",
+    "#ff9ff3", "#feca57", "#ff6b6b"/*,
     "#ff9f43", "#00d2d3", "#c8d6e5",
     "#badc58", "#686de0", "#7ed6df"*/
 ]
 
+
+// 두 배열 중 하나를 랜덤으로 선택
+const colorArray = Math.random() < 0.5 ? colors : newColors;
+// 선택된 배열에서 랜덤으로 색상 선택
+ctx.strokeStyle = colorArray[Math.floor(Math.random() * colorArray.length)];
+currentColor = ctx.strokeStyle;
+
+
+function drawLine(event) {
+    ctx.beginPath();
+    ctx.moveTo(canvas_x, canvas_y); 
+    ctx.lineTo(event.offsetX, event.offsetY);
+    ctx.stroke();
+}
+
 function onClick(event) {
-    ctx.beginPath();
-    ctx.moveTo(canvas_x, canvas_y);
-    const color = colors[Math.floor(Math.random() *colors.length)];
-    ctx.strokeStyle = color;
-    currentColor = ctx.strokeStyle;
-    ctx.lineTo(event.offsetX, event.offsetY);
-    ctx.stroke();
-}
-
-function changeColor(event) { //색상을 변경하기 위한 함수
-
-    ctx.beginPath();
-    ctx.moveTo(canvas_x, canvas_y);
-    const color = newColors[Math.floor(Math.random() * newColors.length)];
-    ctx.strokeStyle = color;
-    currentColor = ctx.strokeStyle;
-    ctx.lineTo(event.offsetX, event.offsetY);
-    ctx.stroke();
-
-    // Change mousemove event listener
-    if (colors.includes(currentColor)) { //현재 색상 값 조건
-        canvas.removeEventListener("mousemove", changeColor);
-        canvas.addEventListener("mousemove", onClick);
+    if (colors.includes(currentColor)) { //현재 색상에 따른 색상 변경
+        currentColor = newColors[Math.floor(Math.random() * newColors.length)];
     } else {
-        canvas.removeEventListener("mousemove", onClick);
-        canvas.addEventListener("mousemove", changeColor);
+        currentColor = colors[Math.floor(Math.random() * colors.length)];
     }
+    ctx.strokeStyle = currentColor;
 }
 
-canvas.addEventListener("mousemove", onClick)
-canvas.addEventListener("click", changeColor)
-
-
+canvas.addEventListener("mousemove", drawLine);
+canvas.addEventListener("click", onClick);
