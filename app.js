@@ -12,15 +12,15 @@ let currentColor = "";
 ctx.lineWidth = 2;
 
 const colors = [
-    "#00a8ff","#8c7ae6","#fbc531"/*,
+    "#00a8ff","#8c7ae6","#fbc531",
     "#44bd32","#40739e","#e84118",
-    "#7f8fa6","#273c75","#2f3640"*/
+    "#7f8fa6","#273c75","#2f3640"
 ]
 
 const newColors = [
-    "#ff9ff3", "#feca57", "#ff6b6b"/*,
+    "#ff9ff3", "#feca57", "#ff6b6b",
     "#ff9f43", "#00d2d3", "#c8d6e5",
-    "#badc58", "#686de0", "#7ed6df"*/
+    "#badc58", "#686de0", "#7ed6df"
 ]
 
 
