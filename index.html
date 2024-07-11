@@ -10,7 +10,8 @@
     <canvas></canvas>
     <input id="line-width" type="range" min="1" max="10" value="5" step="0.1"/>
     <input type="color" id="color"/>
-    <div class="color-option" style="background-color: #eb3b5a" data-color="#eb3b5a"></div>
+    <div>
+        <div class="color-option" style="background-color: #eb3b5a" data-color="#eb3b5a"></div>
     <div class="color-option" style="background-color: #fc5c65" data-color="#fc5c65"></div>
     <div class="color-option" style="background-color: #fa8231" data-color="#fa8231"></div>
     <div class="color-option" style="background-color: #fed330" data-color="#fed330"></div>
@@ -20,6 +21,8 @@
     <div class="color-option" style="background-color: #a55eea" data-color="#a55eea"></div>
     <div class="color-option" style="background-color: #4b6584" data-color="#4b6584"></div>
     <!-- data-XXX : XXX가 HTML의 dataset 요소로 존재하게 됨 -->
+    </div>
+    <button id="mode-btn">Fill</button>
     <script src="app.js"></script>
 </body>
 </html>
