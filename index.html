@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <canvas></canvas>
-    <input id="line-width" type="range" min="1" max="10" value="5" step="0.1"/>
+    <div class="color-options">
     <input type="color" id="color"/>
-    <div>
-        <div class="color-option" style="background-color: #eb3b5a" data-color="#eb3b5a"></div>
+    <div class="color-option" style="background-color: #eb3b5a" data-color="#eb3b5a"></div>
     <div class="color-option" style="background-color: #fc5c65" data-color="#fc5c65"></div>
     <div class="color-option" style="background-color: #fa8231" data-color="#fa8231"></div>
     <div class="color-option" style="background-color: #fed330" data-color="#fed330"></div>
@@ -22,12 +20,23 @@
     <div class="color-option" style="background-color: #4b6584" data-color="#4b6584"></div>
     <!-- data-XXX : XXX가 HTML의 dataset 요소로 존재하게 됨 -->
     </div>
-    <button id="mode-btn">Fill</button>
-    <button id="destroy-btn">Destroy</button>
-    <button id="eraser-btn">Eraser</button>
-    <input type="file" accept="image/*" id="file"/>
-    <input tabindex="text" placeholder="Write and then double click..." id="text"/>  
-    <button id="save">Save Image</button>
+    <canvas></canvas>
+    <div class="btns">
+        <span>
+            🖌️ Penil Width
+        </span>
+        <input id="line-width" type="range" min="1" max="10" value="5" step="0.1"/>
+
+        <button id="mode-btn">🪣 Fill</button>
+        <button id="destroy-btn">💣 Destroy</button>
+        <button id="eraser-btn">❌ Eraser</button>
+        <label for="file">
+            📷 Add Photo
+            <input type="file" accept="image/*" id="file"/>
+        </label>
+        <input tabindex="text" placeholder="Add text here :)" id="text"/>  
+        <button id="save">📁 Save Image</button>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
